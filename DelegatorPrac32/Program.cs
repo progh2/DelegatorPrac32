@@ -12,6 +12,11 @@ namespace DelegatorPrac32
         {
             public string Name { get; set; }
             public int Price { get; set; }
+
+            public override string ToString()
+            {
+                return this.Name + " : " + this.Price;
+            }
         }
         static void Main(string[] args)
         {
@@ -40,12 +45,13 @@ namespace DelegatorPrac32
             // 3. 람다를 활용한 구현2(약식)
             products.Sort((x, y) => x.Price.CompareTo(y.Price));
 
-
             //출력
-            foreach (var item in products)
-            {
-                Console.WriteLine(item.Name + " : " + item.Price);
-            }
+            //foreach (var item in products)
+            //{
+            //    Console.WriteLine(item.Name + " : " + item.Price);
+            //}
+
+            products.ForEach(p =>Console.WriteLine(p));
         }
 
         private static int SortWithPrice(Product x, Product y)
